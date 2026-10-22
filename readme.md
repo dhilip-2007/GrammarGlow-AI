@@ -1,22 +1,27 @@
 # ✨ GrammarGlow AI
 
-**Your Smart Writing Assistant — Write Better, Clearer, and Confidently!**
+### Your Smart Writing Assistant — Write Better, Clearer, and Confidently!
 
-GrammarGlow AI is a frontend-based writing assistant designed to help users improve their writing through grammar suggestions, text analysis, readability scoring, vocabulary assistance, and writing tools.
+GrammarGlow AI is a responsive writing assistant built with HTML, CSS, and JavaScript. It helps users analyze text, identify common grammar issues, improve readability, explore vocabulary, and enhance their writing experience.
 
-## 🌟 Features
+## 🌐 Live Demo
 
-- 📝 **Grammar Checking** — Identify common grammar and writing mistakes.
-- ✍️ **Writing Improvement** — Get suggestions to make sentences clearer.
-- 📊 **Writing Quality Score** — View an estimated score for your writing.
-- 📖 **Readability Analysis** — Understand how easy your text is to read.
-- 💡 **Vocabulary Assistant** — Explore word meanings and alternatives.
-- 🎭 **Tone Improvement** — Experiment with different writing styles.
-- 📋 **Copy Corrected Text** — Copy improved text easily.
-- 📥 **Download Results** — Save your writing results.
-- 🕘 **Writing History** — Review previous analyses saved in your browser.
-- 🌙 **Dark Mode** — Switch between light and dark themes.
-- 📱 **Responsive Design** — Use the application on desktop and mobile screens.
+🚀 **[Launch GrammarGlow AI](https://dhilip-2007.github.io/GrammarGlow-AI/)**
+
+📂 **[View Source Code on GitHub](https://github.com/dhilip-2007/GrammarGlow-AI)**
+
+## ✨ Features
+
+- 📝 Grammar suggestions and writing improvements
+- 📊 Writing quality score
+- 📖 Readability analysis
+- 💡 Vocabulary assistance
+- 🎭 Tone improvement tools
+- 📋 Copy improved text
+- 📥 Download writing results
+- 🕘 Writing history using browser storage
+- 🌙 Light and dark themes
+- 📱 Responsive user interface
 
 ## 🛠️ Technologies Used
 
@@ -35,59 +40,65 @@ GrammarGlow-AI/
 └── README.md
 ```
 
-> Make sure the filenames in your project match the filenames referenced in your HTML file.
+## 🚀 Getting Started
 
-## 🚀 Run Locally
+### 1. Clone the repository
 
-1. Download or clone this repository.
-2. Open the project folder in Visual Studio Code.
-3. Open `index.html` in your browser, or use the **Live Server** extension.
-4. Enter your text and explore the available writing tools.
+```bash
+git clone https://github.com/dhilip-2007/GrammarGlow-AI.git
+```
+
+### 2. Open the project folder
+
+```bash
+cd GrammarGlow-AI
+```
+
+### 3. Run the application
+
+Open `index.html` in your browser or use the Live Server extension in Visual Studio Code.
 
 No backend installation is required for this frontend version.
-
-## 🌐 Live Demo
-
-**Live Demo:** Add your deployed GitHub Pages URL here after enabling GitHub Pages.
-
-Example format:
-
-`https://dhilip-2007.github.io/GrammarGlow-AI/`
-
-This example works only if your repository is named `GrammarGlow-AI` and GitHub Pages is configured correctly.
 
 ## 🧠 How It Works
 
 1. Enter or paste text into the writing editor.
-2. Select the analysis option.
-3. Review the grammar suggestions and writing statistics.
+2. Start the text analysis.
+3. Review grammar suggestions and writing statistics.
 4. Explore readability, vocabulary, and tone tools.
 5. Copy or download your results.
 
-## ⚠️ Limitations
+## 🎯 Project Objective
 
-GrammarGlow AI currently uses browser-based JavaScript rules and heuristics. Its suggestions and scores are estimates, not guaranteed corrections from a trained AI model. It does not currently require or connect to an external AI API.
+The objective of GrammarGlow AI is to demonstrate how frontend web technologies can be used to build an interactive writing assistant that supports clearer written communication.
+
+## ⚠️ Current Limitations
+
+The current version uses JavaScript-based rules and heuristics. Grammar suggestions and quality scores are estimates and may not always be correct. A trained AI model or external grammar-checking API is not currently integrated.
 
 ## 🔮 Future Enhancements
 
-- Integration with a real AI language model API
-- More advanced grammar and spelling checks
+- AI-powered grammar correction
+- Advanced spelling and punctuation checks
 - Multilingual writing assistance
-- Speech-to-text support
+- Speech-to-text conversion
 - Text-to-speech functionality
 - User accounts and cloud-based writing history
-- Backend integration for saving documents securely
-
-## 🎯 Project Objective
-
-The objective of GrammarGlow AI is to demonstrate how web technologies can be used to build an interactive writing assistant that helps users understand and improve their written communication.
+- Advanced writing recommendations
 
 ## 👨‍💻 Author
 
 **Dhilip**
 
-GitHub: [dhilip-2007](https://github.com/dhilip-2007)
+- GitHub: [dhilip-2007](https://github.com/dhilip-2007)
+- Repository: [GrammarGlow-AI](https://github.com/dhilip-2007/GrammarGlow-AI)
 
 ## 📜 License
 
-This project is available for educational and personal learning purposes. You may adapt it for your own projects.
+Created for educational and personal learning purposes.
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star!
+
+Made with ❤️ using HTML, CSS, and JavaScript.
