@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101426">
+  <meta name="description" content="GrammarGlow AI - Your personal grammar and writing assistant">
+  <title>GrammarGlow AI | Writing Assistant</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home">
+        <span class="brand-logo">G</span>
+        <span>
+          <strong>GrammarGlow</strong>
+          <small>AI WRITING STUDIO</small>
+        </span>
+      </a>
+
+      <div class="workspace-switcher">
+        <span class="workspace-avatar">G</span>
+        <span>
+          <small>WORKSPACE</small>
+          <strong>Personal space</strong>
+        </span>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <p class="nav-caption">WORKSPACE</p>
+        <a class="nav-item active" href="#editor">✦ Writing assistant</a>
+        <a class="nav-item" href="#history">◷ Recent documents</a>
+        <a class="nav-item" href="#reports">▥ Writing reports</a>
+        <a class="nav-item" href="#vocabulary">Aa Vocabulary builder</a>
+
+        <p class="nav-caption">WRITING TOOLS</p>
+        <a class="nav-item" href="#grammar-tool">✓ Grammar checker</a>
+        <a class="nav-item" href="#spelling-tool">✎ Spelling checker</a>
+        <a class="nav-item" href="#readability-tool">◉ Readability score</a>
+        <a class="nav-item" href="#tone-tool">☷ Tone suggestions</a>
+      </nav>
+
+      <div class="sidebar-promo">
+        <span class="promo-icon">✧</span>
+        <h3>Make every word count.</h3>
+        <p>Small improvements make your writing clearer and stronger.</p>
+        <a href="#tips">Explore writing tips →</a>
+      </div>
+
+      <div class="sidebar-bottom">
+        <a class="nav-item" href="#help">? Help center</a>
+        <div class="profile">
+          <span class="profile-avatar">G</span>
+          <span>
+            <strong>Guest writer</strong>
+            <small>Free workspace</small>
+          </span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="home">
+      <header class="topbar">
+        <div class="breadcrumb">
+          <button id="mobileMenuButton" class="icon-button" aria-label="Toggle menu">☰</button>
+          <span>Workspace</span>
+          <span>/</span>
+          <strong>Writing assistant</strong>
+        </div>
+
+        <div class="topbar-actions">
+          <span class="status-pill">
+            <span class="status-dot"></span>
+            Local analysis mode
+          </span>
+          <button class="icon-button" id="themeToggle" aria-label="Toggle theme">☼</button>
+          <button class="secondary-button" id="helpButton">Help</button>
+        </div>
+      </header>
+
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL WRITING PARTNER</p>
+          <h1>Make your writing <span class="gradient-text">shine.</span></h1>
+          <p class="page-subtitle">
+            Clear thoughts. Correct grammar. Confident communication.
+          </p>
+        </div>
+        <div class="heading-decoration" aria-hidden="true">✦</div>
+      </section>
+
+      <section class="quick-stats" aria-label="Writing overview">
+        <article class="stat-card">
+          <span class="stat-icon purple">✧</span>
+          <div>
+            <span class="stat-label">Writing quality</span>
+            <strong id="qualityStat">Ready to review</strong>
+            <small>Based on your current text</small>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-icon green">✓</span>
+          <div>
+            <span class="stat-label">Words checked</span>
+            <strong id="wordsStat">0 words</strong>
+            <small>Updates as you type</small>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-icon orange">◷</span>
+          <div>
+            <span class="stat-label">Reading time</span>
+            <strong id="readingStat">0 min</strong>
+            <small>Estimated reading time</small>
+          </div>
+        </article>
+      </section>
+
+      <div class="workspace-grid">
+        <section class="panel editor-panel" id="editor">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title-row">
+                <span class="panel-icon">✎</span>
+                <h2>Writing workspace</h2>
+                <span class="live-badge">● LIVE</span>
+              </div>
+              <p>Write or paste your text below to review it.</p>
+            </div>
+
+            <div class="header-buttons">
+              <button class="text-button" id="newDocumentButton">＋ New</button>
+              <button class="icon-button" id="downloadButton" title="Download text">⇩</button>
+            </div>
+          </div>
+
+          <div class="document-toolbar">
+            <div class="document-name">
+              <span>▤</span>
+              <input id="documentTitle" value="Untitled document" maxlength="80" aria-label="Document title">
+              <span id="savedIndicator">Not saved</span>
+            </div>
+
+            <div class="language-control">
+              <label for="languageSelect">Language</label>
+              <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="en-uk">English (UK)</option>
+                <option value="en-us">English (US)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="editor-body">
+            <div class="editor-label-row">
+              <span>YOUR TEXT</span>
+              <span>Write or paste anything here</span>
+            </div>
+
+            <textarea
+              id="writingInput"
+              spellcheck="true"
+              aria-label="Text to check"
+              placeholder="Start writing here...
+
+Example:
+Their going to the library because its important to learn.
+
+Enter your own paragraph and click Check my writing."
+            ></textarea>
+
+            <div class="editor-footer">
+              <div class="text-metrics">
+                <span id="wordCount">0 words</span>
+                <span id="characterCount">0 characters</span>
+                <span id="sentenceCount">0 sentences</span>
+              </div>
+
+              <div class="header-buttons">
+                <button class="text-button" id="clearButton">Clear text</button>
+                <button class="text-button" id="copyButton">▢ Copy</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="analysis-actions">
+            <div>
+              <strong>Ready to polish your writing?</strong>
+              <p>Check common grammar patterns and review suggestions.</p>
+            </div>
+            <button class="primary-button" id="checkButton">
+              ✧ Check my writing →
+            </button>
+          </div>
+
+          <section class="results-section" id="resultsSection" hidden>
+            <div class="results-heading">
+              <div>
+                <p class="eyebrow">YOUR REVIEW</p>
+                <h3>Writing suggestions</h3>
+              </div>
+              <span id="issueCount">0 suggestions</span>
+            </div>
+
+            <div id="resultsList" class="results-list" aria-live="polite"></div>
+
+            <div id="correctedOutputWrap" hidden>
+              <h4>Suggested version</h4>
+              <p class="helper-text">Review all changes before using this version.</p>
+              <textarea id="correctedOutput" readonly aria-label="Suggested corrected text"></textarea>
+              <div class="header-buttons">
+                <button class="secondary-button" id="copyCorrectedButton">Copy suggestion</button>
+                <button class="primary-button" id="useCorrectedButton">Use this version →</button>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <aside class="insights-column">
+          <section class="panel" id="reports">
+            <div class="panel-header">
+              <div>
+                <h2>Writing score</h2>
+                <p>A quick overview of your draft.</p>
+              </div>
+            </div>
+
+            <div class="score-display">
+              <div class="score-ring" id="scoreRing">
+                <svg viewBox="0 0 160 160" aria-hidden="true">
+                  <circle class="score-track" cx="80" cy="80" r="66"></circle>
+                  <circle class="score-progress" id="scoreProgress" cx="80" cy="80" r="66"></circle>
+                </svg>
+                <div class="score-ring-center">
+                  <strong id="scoreValue">—</strong>
+                  <span>out of 100</span>
+                </div>
+              </div>
+              <div class="score-caption">
+                <strong id="scoreLabel">Waiting for text</strong>
+                <p id="scoreDescription">Enter text to see an estimated score.</p>
+              </div>
+            </div>
+
+            <div class="score-breakdown">
+              <div class="breakdown-row">
+                <span>Clarity</span>
+                <div class="mini-progress"><span id="clarityBar"></span></div>
+                <strong id="clarityValue">—</strong>
+              </div>
+              <div class="breakdown-row">
+                <span>Conciseness</span>
+                <div class="mini-progress"><span id="concisenessBar"></span></div>
+                <strong id="concisenessValue">—</strong>
+              </div>
+              <div class="breakdown-row">
+                <span>Sentence flow</span>
+                <div class="mini-progress"><span id="flowBar"></span></div>
+                <strong id="flowValue">—</strong>
+              </div>
+            </div>
+
+            <p class="disclaimer">This is a learning estimate, not a professional grade.</p>
+          </section>
+
+          <section class="panel" id="readability-tool">
+            <div class="panel-header">
+              <div>
+                <h2>Text insights</h2>
+                <p>Understand your writing at a glance.</p>
+              </div>
+            </div>
+
+            <div class="insight-grid">
+              <article class="insight-tile">
+                <span>¶</span>
+                <small>Paragraphs</small>
+                <strong id="paragraphCount">0</strong>
+              </article>
+              <article class="insight-tile">
+                <span>Aa</span>
+                <small>Avg. word length</small>
+                <strong id="avgWordLength">0.0</strong>
+              </article>
+              <article class="insight-tile">
+                <span>↗</span>
+                <small>Long sentences</small>
+                <strong id="longSentenceCount">0</strong>
+              </article>
+              <article class="insight-tile">
+                <span>#</span>
+                <small>Unique words</small>
+                <strong id="uniqueWordCount">0</strong>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel" id="tone-tool">
+            <div class="panel-header">
+              <div>
+                <h2>Tone guide</h2>
+                <p>Choose your preferred writing style.</p>
+              </div>
+            </div>
+
+            <div class="tone-options">
+              <button class="tone-option selected" data-tone="clear">
+                <span>✦</span>
+                <span><strong>Clear</strong><small>Simple and direct</small></span>
+                <span class="tone-check">✓</span>
+              </button>
+              <button class="tone-option" data-tone="professional">
+                <span>▣</span>
+                <span><strong>Professional</strong><small>Polished and formal</small></span>
+                <span class="tone-check">✓</span>
+              </button>
+              <button class="tone-option" data-tone="friendly">
+                <span>☺</span>
+                <span><strong>Friendly</strong><small>Warm and approachable</small></span>
+                <span class="tone-check">✓</span>
+              </button>
+              <button class="tone-option" data-tone="academic">
+                <span>▤</span>
+                <span><strong>Academic</strong><small>Structured and precise</small></span>
+                <span class="tone-check">✓</span>
+              </button>
+            </div>
+
+            <p class="tone-note" id="toneNote">Tip: use short sentences to make your message easier to follow.</p>
+          </section>
+        </aside>
+      </div>
+
+      <section class="tools-section" id="grammar-tool">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">BUILT FOR BETTER WRITING</p>
+            <h2>Your writing toolkit</h2>
+          </div>
+          <p>Useful checks for assignments, emails, and everyday writing.</p>
+        </div>
+
+        <div class="tool-cards">
+          <article class="tool-card" id="spelling-tool">
+            <span class="tool-card-icon purple">Aa</span>
+            <span class="tool-tag">BASICS</span>
+            <h3>Spelling patterns</h3>
+            <p>Review common misspellings and frequently confused words.</p>
+            <button class="tool-link" data-tool="spelling">Review spelling →</button>
+          </article>
+
+          <article class="tool-card">
+            <span class="tool-card-icon green">✓</span>
+            <span class="tool-tag">ACCURACY</span>
+            <h3>Grammar patterns</h3>
+            <p>Spot common errors such as its/it's and their/they're.</p>
+            <button class="tool-link" data-tool="grammar">Check grammar →</button>
+          </article>
+
+          <article class="tool-card">
+            <span class="tool-card-icon orange">≋</span>
+            <span class="tool-tag">READABILITY</span>
+            <h3>Sentence clarity</h3>
+            <p>Find long sentences and opportunities to simplify.</p>
+            <button class="tool-link" data-tool="clarity">Improve clarity →</button>
+          </article>
+
+          <article class="tool-card">
+            <span class="tool-card-icon blue">✧</span>
+            <span class="tool-tag">STYLE</span>
+            <h3>Writing tone</h3>
+            <p>Explore professional, friendly, clear, and academic styles.</p>
+            <button class="tool-link" data-tool="tone">Explore tone →</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="tips-section" id="tips">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">A LITTLE WRITING WISDOM</p>
+            <h2>Tips for stronger sentences</h2>
+          </div>
+        </div>
+
+        <div class="tips-grid">
+          <article class="tip-card">
+            <span class="tip-number">01</span>
+            <h3>Lead with the main idea</h3>
+            <p>Put important information near the beginning so readers can follow your point.</p>
+          </article>
+          <article class="tip-card">
+            <span class="tip-number">02</span>
+            <h3>Prefer precise words</h3>
+            <p>Choose specific words that explain exactly what you mean.</p>
+          </article>
+          <article class="tip-card">
+            <span class="tip-number">03</span>
+            <h3>Read it out loud</h3>
+            <p>Reading aloud can help you notice awkward phrasing and repetition.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="history-section" id="history">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p>
+            <h2>Recent documents</h2>
+          </div>
+          <button class="text-button" id="clearHistoryButton">Clear history</button>
+        </div>
+
+        <div class="history-card" id="historyList">
+          <span class="history-icon">▤</span>
+          <div>
+            <strong>No recent documents yet</strong>
+            <p>Your saved drafts can appear here in this browser.</p>
+          </div>
+          <button class="secondary-button" id="saveDocumentButton">Save current draft</button>
+        </div>
+      </section>
+
+      <section class="panel vocabulary-section" id="vocabulary">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">GROW YOUR WORD POWER</p>
+            <h2>Vocabulary builder</h2>
+            <p>Find alternatives when a word feels vague or repetitive.</p>
+          </div>
+        </div>
+
+        <div class="vocabulary-search-row">
+          <input id="vocabularySearch" type="search" placeholder="Try: good, bad, very, big" aria-label="Search a word">
+          <button class="secondary-button" id="vocabularySearchButton">Find alternatives</button>
+        </div>
+        <div id="vocabularyResults" class="vocabulary-results" aria-live="polite">
+          <p>Word alternatives will appear here.</p>
+        </div>
+      </section>
+
+      <section class="faq-section" id="help">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">NEED A HAND?</p>
+            <h2>Frequently asked questions</h2>
+          </div>
+        </div>
+
+        <details class="faq-item">
+          <summary>Does GrammarGlow use a real AI model?</summary>
+          <p>This starter version uses local rule-based checks. A real AI service requires a backend and an AI provider integration.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is my text sent to a server?</summary>
+          <p>The HTML interface does not send your text to a server by itself. Browser features and any future integrations may have different data handling.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I download my writing?</summary>
+          <p>Use the download button to save your text once the JavaScript functionality is connected.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Will every grammar error be detected?</summary>
+          <p>No. Simple rules can miss errors and sometimes suggest changes that do not fit the context. Review suggestions carefully.</p>
+        </details>
+      </section>
+
+      <footer class="footer">
+        <a class="footer-brand" href="#home">✦ GrammarGlow AI</a>
+        <p>Write clearly. Learn continuously. Communicate confidently.</p>
+        <span>Made for better writing · <span id="currentYear">2026</span></span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
